@@ -374,10 +374,10 @@ export default function Feed() {
           </div>
 
           {/* Post */}
-          {posts?.length === 0 ? (
+          {!posts ? (
             <LoadingScreen />
           ) : (
-            posts.map((post, index) => (
+            posts?.map((post, index) => (
               <div
                 key={index}
                 className="bg-white p-6 rounded-lg shadow-md mb-6"
