@@ -229,6 +229,10 @@ class ApiServices {
         },
       },
     );
+    if (!data?.data?.user) {
+      console.log("Profile response:", data);
+      return null; 
+    }
     return data.data.user;
   }
 

@@ -14,10 +14,6 @@ export default function Profile() {
   const userToken = localStorage.getItem("token");
   const fileInputRef = useRef();
   const [selectedFile, setSelectedFile] = useState(null);
-  // const [passwords, setPasswords] = useState({
-  //   currentPassword: "",
-  //   newPassword: "",
-  // });
   const toggleVisibility = () => setIsVisible(!isVisible);
   const [isVisible, setIsVisible] = React.useState(false);
   const [loading, setLoading] = useState(false);
@@ -32,31 +28,7 @@ export default function Profile() {
       // isRequired: true,
     };
   }
-  // async function getMyProfile() {
-  //   try {
-  //     const { data } = await axios.get(
-  //       "https://route-posts.routemisr.com/users/profile-data",
-  //       {
-  //         headers: {
-  //           token: userToken,
-  //         },
-  //       },
-  //     );
-  //     return data.data.user;
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   async function fetchProfile() {
-  //     const userData = await getMyProfile();
-  //     setUser(userData);
-  //   }
-
-  //   fetchProfile();
-  // }, []);
-
+  
   async function getMyProfile() {
     const user = await apiServices.getMyProfile();
     setUser(user);
@@ -95,35 +67,6 @@ export default function Profile() {
       console.log(error.response?.data || error.message);
     }
   }
-
-  // async function handleChangePassword() {
-  //   try {
-  //     const res = await apiServices.changePassword(passwords);
-  //     setLoading(true);
-
-  //     console.log(res);
-
-  //     setPasswords({
-  //       currentPassword: "",
-  //       newPassword: "",
-  //     });
-
-  //     setLoading(false);
-  //     addToast({
-  //       title: "Success",
-  //       description: "Password changed successfully",
-  //       color: "success",
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-
-  //     addToast({
-  //       title: "Error",
-  //       description: error.response?.data?.message || "Something went wrong",
-  //       color: "danger",
-  //     });
-  //   }
-  // }
 
   async function handleChangePassword(data) {
     try {
