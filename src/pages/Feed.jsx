@@ -374,7 +374,7 @@ export default function Feed() {
           </div>
 
           {/* Post */}
-          {!posts ? (
+          {posts.length === 0 ? (
             <LoadingScreen />
           ) : (
             posts?.map((post, index) => (
