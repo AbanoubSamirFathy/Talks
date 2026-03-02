@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SignupSchema } from "../helpers/SignupSchema";
 import axios from "axios";
 import { Alert } from "@heroui/react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addToast } from "@heroui/react";
 
 function getInputProps(label, type, error) {
@@ -119,6 +119,10 @@ export default function SignUp() {
           <SelectItem key="male">Male</SelectItem>
           <SelectItem key="female">Female</SelectItem>
         </Select>
+        <div className="flex gap-2">
+          <p>Have an account?</p>
+          <Link to="/signin" className="text-blue-500">Sign In</Link>
+        </div>
         <Button isLoading={isLoading} color="primary" type="submit">
           Submit
         </Button>
@@ -134,13 +138,3 @@ export default function SignUp() {
     </form>
   );
 }
-
-
-
-
-
-
-
-
-
-
